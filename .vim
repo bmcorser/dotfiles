@@ -1,1 +1,1 @@
-.vim
+/home/ben/.vim
