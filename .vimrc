@@ -25,6 +25,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle "mileszs/ack.vim"
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'nvie/vim-flake8'
+Bundle 'altercation/vim-colors-solarized'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 " ...
