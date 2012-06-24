@@ -103,4 +103,4 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 alias vi=vim
 alias phsort="exiftool '-FileName<CreateDate' -d %Y/%Y%m%d/%Y%m%d-%H%M-%S.%%e temp"
-source ~/dotfiles/.git-bash-completion.sh
+source i/dotfiles/.git-bash-completion.sh
