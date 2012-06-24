@@ -1,5 +1,6 @@
 set number
 syntax on
+colorscheme murphy
 
 set nocompatible               " be iMproved
 filetype off                   " required!
