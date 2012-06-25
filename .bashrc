@@ -13,7 +13,7 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=131072
 HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
@@ -101,6 +101,7 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+export PS1='\e[1;31m\u\e[m $ '
 alias vi=vim
 alias phsort="exiftool '-FileName<CreateDate' -d %Y/%Y%m%d/%Y%m%d-%H%M-%S.%%e temp"
 source ~/dotfiles/.git-bash-completion.sh
