@@ -1,7 +1,3 @@
-set number
-syntax on
-colorscheme murphy
-
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -26,6 +22,7 @@ Bundle "mileszs/ack.vim"
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'nvie/vim-flake8'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'vim-scripts/Rainbow-Parenthesis'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 " ...
@@ -33,3 +30,10 @@ Bundle 'git://git.wincent.com/command-t.git'
 filetype plugin indent on     " required!
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'skwp'
+
+let g:solarized_termcolors=256
+
+syntax enable
+set background=light
+colorscheme solarized
+set number
