@@ -27,7 +27,7 @@ Bundle 'vim-scripts/Rainbow-Parenthesis'
 Bundle 'git://git.wincent.com/command-t.git'
 " ...
 
-filetype plugin indent on     " required!
+filetype plugin on     " required!
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'skwp'
 
@@ -37,11 +37,3 @@ syntax enable
 set background=light
 colorscheme solarized
 set number
-
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
