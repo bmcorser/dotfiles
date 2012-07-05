@@ -15,14 +15,22 @@ Bundle 'gmarik/vundle'
 
 " My Bundles here:
 "
-" original repos on github
+"
+
+" Colorschemes
+Bundle 'mutewinter/ir_black_mod'
+Bundle 'tomasr/molokai'
+Bundle 'cschlueter/vim-wombat'
+
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
 Bundle "mileszs/ack.vim"
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'nvie/vim-flake8'
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-scripts/Rainbow-Parenthesis'
+"Bundle 'vim-scripts/YankRing.vim'
+Bundle 'tpope/vim-unimpaired'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 " ...
@@ -31,9 +39,17 @@ filetype plugin on     " required!
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'skwp'
 
-let g:solarized_termcolors=256
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+
+"let g:solarized_termcolors=256
 
 syntax enable
-set background=light
-colorscheme solarized
+"set background=dark
+colorscheme molokai
 set number

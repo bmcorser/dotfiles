@@ -20,7 +20,7 @@
 	new = green bold
 [color "status"]
 	added = green bold
-	changed = yellow bold
-	untracked = red
+	changed = red bold
+	untracked = cyan 
 [color "sh"]
 	branch = yellow
