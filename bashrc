@@ -102,11 +102,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 #export PS1="\e[1;31m➔\e[m $ "
-build_prompt(){
-  arrow=`python ~/dotfiles/randarrow.py`
-  export PS1="\e[1;31m"$arrow"\e[m $ "
-}
-export PROMPT_COMMAND=build_prompt
 alias vi=vim
 alias phsort="exiftool '-FileName<CreateDate' -d %Y/%Y%m%d/%Y%m%d-%H%M-%S.%%e temp"
 source ~/dotfiles/git-bash-completion.sh
