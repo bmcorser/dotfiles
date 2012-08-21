@@ -1,55 +1,91 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
-
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show unicode glyphs
+" Standard bits
+let mapleader = ","
 set t_Co=256
-map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
+set number
+
+" Vundle plugin manager
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required! 
+" What to install!?
 Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
-"
-
-" Colorschemes
-Bundle 'mutewinter/ir_black_mod'
-Bundle 'tomasr/molokai'
-Bundle 'cschlueter/vim-wombat'
-
 Bundle 'tpope/vim-fugitive'
-"Bundle 'Lokaltog/vim-easymotion'
-Bundle "mileszs/ack.vim"
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'klen/python-mode'
+Bundle 'molok/vim-vombato-colorscheme'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'nvie/vim-flake8'
-"Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-scripts/Rainbow-Parenthesis'
-"Bundle 'vim-scripts/YankRing.vim'
-Bundle 'tpope/vim-unimpaired'
-" non github repos
-Bundle 'git://git.wincent.com/command-t.git'
-" ...
+"Bundle 'vim-scripts/Rainbow-Parenthesis'
+Bundle 'kien/ctrlp.vim'
 
-filetype plugin on     " required!
+filetype plugin indent on
+
+" For Powerline
+set laststatus=2
+set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'skwp'
 
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+" Solarized stuff
+let g:solarized_termcolors=256
+syntax enable
+set background=dark
+colorscheme solarized
+
+" Better split movement
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" Handle indentation
+vnoremap < <<gv
+vnoremap > >>gv
+
+" Stick to 80 column files
+set colorcolumn=80
+highlight ColorColumn ctermbg=233
+
+" Do we really need swap files?
+set nobackup
+set nowritebackup
+set noswapfile
+
+
+" CtrlP stuff
+let g:ctrlp_max_height = 30
+set wildignore+=*.pyc
+
+" python-mode stuff
+map <Leader>g :call RopeGotoDefinition()<CR>
+let g:pymode_rope_goto_def_newwin = "vnew"
+let g:pymode_rope_guess_project = 0
+let g:pymode_lint = 1
+let g:pymode_lint_write = 0
+let g:pymode_folding = 0
+
+function! OmniPopup(action)
+    if pumvisible()
+        if a:action == 'j'
+            return "\<C-N>"
+        elseif a:action == 'k'
+            return "\<C-P>"
+        endif
+    endif
+    return a:action
+endfunction
+inoremap <silent>j <C-R>=OmniPopup('j')<CR>
+inoremap <silent>k <C-R>=OmniPopup('k')<CR>
+
+" Tab settings
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set shiftround
 set expandtab
 
-"let g:solarized_termcolors=256
-
-syntax enable
-"set background=dark
-colorscheme molokai
-set number
+" Reset splits after window size has changed
+set <F5>=[15~
+noremap <F5> :sp<CR>:q<CR>:vsp<CR>:q<CR>
