@@ -17,8 +17,11 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'klen/python-mode'
 Bundle 'molok/vim-vombato-colorscheme'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'tomasr/molokai'
 "Bundle 'vim-scripts/Rainbow-Parenthesis'
 Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'mileszs/ack.vim'
 
 filetype plugin indent on
 
@@ -89,3 +92,17 @@ set expandtab
 " Reset splits after window size has changed
 set <F5>=[15~
 noremap <F5> :sp<CR>:q<CR>:vsp<CR>:q<CR>
+
+" Fugitive bindings
+set <F9>=[20~
+set <F12>=[24~
+set <F2>=OQ
+set <F3>=OR
+
+noremap <F9> :diffget //2<CR>:diffupdate<CR>
+noremap <F12> :diffget //3<CR>:diffupdate<CR>
+noremap <F2> :cnext<CR>
+noremap <F3> :cprevious<CR>
+
+" Ack.vim
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
