@@ -22,6 +22,7 @@ Bundle 'tomasr/molokai'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on
 
@@ -93,12 +94,13 @@ set expandtab
 set <F5>=[15~
 noremap <F5> :sp<CR>:q<CR>:vsp<CR>:q<CR>
 
-" Fugitive bindings
+" setting F-keys to <F-keys> on my system
 set <F9>=[20~
 set <F12>=[24~
 set <F2>=OQ
 set <F3>=OR
 
+" Binding new <F-keys> to Fugitive commands
 noremap <F9> :diffget //2<CR>:diffupdate<CR>
 noremap <F12> :diffget //3<CR>:diffupdate<CR>
 noremap <F2> :cnext<CR>
@@ -106,3 +108,6 @@ noremap <F3> :cprevious<CR>
 
 " Ack.vim
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+" Tagbar binding
+nmap <F8> :TagbarToggle<CR>
