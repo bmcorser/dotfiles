@@ -90,10 +90,6 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
-" Reset splits after window size has changed
-set <F5>=[15~
-noremap <F5> :sp<CR>:q<CR>:vsp<CR>:q<CR>
-
 " setting F-keys to <F-keys> on my system
 set <F9>=[20~
 set <F12>=[24~
