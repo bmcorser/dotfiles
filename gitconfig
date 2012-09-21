@@ -24,3 +24,7 @@
 	untracked = cyan 
 [color "sh"]
 	branch = yellow
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+	tool = fugitive
