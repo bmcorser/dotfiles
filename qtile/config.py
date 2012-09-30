@@ -13,6 +13,10 @@ from libqtile import layout, bar, widget, hook
 # Screen objects, each with whatever widgets you want.
 #
 # Below is a screen with a top bar that contains several basic qtile widgets.
+graphconfig = {
+    'border_width':1,
+    'line_width':1
+}
 screens = [Screen(top = bar.Bar([
         # This is a list of our virtual desktops.
         widget.GroupBox(
@@ -20,8 +24,6 @@ screens = [Screen(top = bar.Bar([
             fontsize=10,
             urgent_alert_method='text'
         ),
-
-        # widget.CPUGraph(),
 
         # A prompt for spawning processes or switching groups. This will be
         # invisible most of the time.
@@ -42,16 +44,29 @@ screens = [Screen(top = bar.Bar([
             power_now_file='current_now',
             fontsize=12
         ),
-        widget.Systray(),
         widget.Clock(
-            '%Y-%m-%d %a %I:%M %p',
+            '%Y-%m-%d %a %I:%M:%S %p',
             fontsize=12,
+            foreground='ffff00',
         ),
     ], 20),
     bottom = bar.Bar([
-        widget.CPUGraph(),
-        widget.MemoryGraph(),
-        widget.NetGraph(),
+        widget.CPUGraph(
+            border_width=1,
+            line_width=1,
+        ),
+        widget.MemoryGraph(
+            border_width=1,
+            line_width=1,
+        ),
+        widget.NetGraph(
+            border_width=1,
+            line_width=1,
+        ),
+        widget.Spacer(),
+        widget.Mpris(),
+        widget.Systray(),
+
     ], 20)) # our bar is 30px high
 ]
 
@@ -95,10 +110,10 @@ keys = [
         [], "XF86AudioLowerVolume",
         lazy.spawn("amixer -c 0 -q set Master 2dB-")
     ),
-    Key(
-        [], "XF86AudioMute",
-        lazy.spawn("amixer -c 0 -q set Master toggle")
-    ),
+    # Key(
+        # [], "XF86AudioMute",
+        # lazy.spawn("amixer set Master toggle")
+    # ),
 
     # Also allow changing volume the old fashioned way.
     Key([mod], "equal", lazy.spawn("amixer -c 0 -q set Master 2dB+")),
@@ -123,7 +138,7 @@ for i in ["a", "s", "d", "f", "u", "i", "o", "p"]:
         Key([mod], i, lazy.group[i].toscreen())
     )
     keys.append(
-        Key([mod, "mod1"], i, lazy.window.togroup(i))
+        Key([mod, "shift"], i, lazy.window.togroup(i))
     )
 
 # Two basic layouts.

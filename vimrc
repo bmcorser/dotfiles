@@ -1,8 +1,6 @@
 " Standard bits
 let mapleader = ","
 set t_Co=256
-set number
-
 " Vundle plugin manager
 set nocompatible
 filetype off
