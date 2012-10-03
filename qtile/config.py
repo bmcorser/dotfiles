@@ -62,6 +62,7 @@ screens = [Screen(top = bar.Bar([
         widget.NetGraph(
             border_width=1,
             line_width=1,
+            interface='wlan0',
         ),
         widget.Spacer(),
         widget.Mpris(),
