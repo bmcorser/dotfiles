@@ -1,6 +1,7 @@
 " Standard bits
 let mapleader = ","
 set t_Co=256
+
 " Vundle plugin manager
 set nocompatible
 filetype off
@@ -12,7 +13,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'klen/python-mode'
 Bundle 'molok/vim-vombato-colorscheme'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tomasr/molokai'
@@ -20,7 +20,10 @@ Bundle 'tomasr/molokai'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
-Bundle 'majutsushi/tagbar'
+Bundle "myusuf3/numbers.vim"
+Bundle 'sjl/gundo.vim'
+Bundle 'sjl/clam.vim'
+Bundle 'xolox/vim-easytags'
 
 filetype plugin indent on
 
@@ -55,18 +58,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-
 " CtrlP stuff
 let g:ctrlp_max_height = 30
 set wildignore+=*.pyc
-
-" python-mode stuff
-map <Leader>g :call RopeGotoDefinition()<CR>
-let g:pymode_rope_goto_def_newwin = "vnew"
-let g:pymode_rope_guess_project = 0
-let g:pymode_lint = 1
-let g:pymode_lint_write = 0
-let g:pymode_folding = 0
 
 function! OmniPopup(action)
     if pumvisible()
@@ -103,5 +97,7 @@ noremap <F3> :cprevious<CR>
 " Ack.vim
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
-" Tagbar binding
-nmap <F8> :TagbarToggle<CR>
+nmap <F8> :TagbarToggle<CR>         " Tagbar binding
+nnoremap <F7> :NumbersToggle<CR>    " Relative numbers toggle
+nnoremap <F5> :GundoToggle<CR>      " Gundo
+set shortmess+=filmnrxoOtT          " Not hitting ENTER
