@@ -23,7 +23,8 @@ Bundle 'mileszs/ack.vim'
 Bundle "myusuf3/numbers.vim"
 Bundle 'sjl/gundo.vim'
 Bundle 'sjl/clam.vim'
-Bundle 'xolox/vim-easytags'
+" Bundle 'xolox/vim-easytags'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on
 
@@ -93,7 +94,6 @@ noremap <F9> :diffget //2<CR>:diffupdate<CR>
 noremap <F12> :diffget //3<CR>:diffupdate<CR>
 noremap <F2> :cnext<CR>
 noremap <F3> :cprevious<CR>
-
 " Ack.vim
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
@@ -101,3 +101,7 @@ nmap <F8> :TagbarToggle<CR>         " Tagbar binding
 nnoremap <F7> :NumbersToggle<CR>    " Relative numbers toggle
 nnoremap <F5> :GundoToggle<CR>      " Gundo
 set shortmess+=filmnrxoOtT          " Not hitting ENTER
+
+" NERDTree binding and toggle
+nnoremap <F6> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.pyc$', 'Session.vim']
