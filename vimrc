@@ -16,15 +16,18 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'molok/vim-vombato-colorscheme'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tomasr/molokai'
-"Bundle 'vim-scripts/Rainbow-Parenthesis'
-Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
 Bundle "myusuf3/numbers.vim"
 Bundle 'sjl/gundo.vim'
 Bundle 'sjl/clam.vim'
-" Bundle 'xolox/vim-easytags'
+Bundle 'kien/tabman.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'xolox/vim-easytags'
 Bundle 'majutsushi/tagbar'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'Shougo/neocomplcache'
 
 filetype plugin indent on
 
@@ -38,7 +41,7 @@ let g:Powerline_colorscheme = 'skwp'
 let g:solarized_termcolors=256
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme molokai
 
 " Better split movement
 map <c-j> <c-w>j
@@ -77,9 +80,9 @@ inoremap <silent>j <C-R>=OmniPopup('j')<CR>
 inoremap <silent>k <C-R>=OmniPopup('k')<CR>
 
 " Tab settings
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set shiftround
 set expandtab
 
@@ -97,11 +100,42 @@ noremap <F3> :cprevious<CR>
 " Ack.vim
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
-nmap <F8> :TagbarToggle<CR>         " Tagbar binding
 nnoremap <F7> :NumbersToggle<CR>    " Relative numbers toggle
 nnoremap <F5> :GundoToggle<CR>      " Gundo
 set shortmess+=filmnrxoOtT          " Not hitting ENTER
 
 " NERDTree binding and toggle
+autocmd vimenter * if !argc() | NERDTree | endif
 nnoremap <F6> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.pyc$', 'Session.vim']
+let NERDTreeIgnore=['\.pyc$', 'Session.vim'] " We don't want to go around opening bytecode files or Vim session files now do we?
+
+" Tagbar bindings and options
+let g:tagbar_autofocus = 1
+nmap <F8> :TagbarToggle<CR>         " Tagbar binding
+
+" Rainbow parens
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Trying neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+
+"""""
+" Up and down
+"
+"The following mappings in your vimrc provide a quick way to move lines 
+"of text up or down. The mappings work in normal, insert and visual modes,
+"allowing you to move the current line, or a selected block of lines.
+
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+""allow pasting in insert mode
+
+nmap <leader>p :set paste!<CR>
