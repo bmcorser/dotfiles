@@ -20,14 +20,17 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'mileszs/ack.vim'
 Bundle "myusuf3/numbers.vim"
 Bundle 'sjl/gundo.vim'
-Bundle 'sjl/clam.vim'
+" Bundle 'sjl/clam.vim'
 Bundle 'kien/tabman.vim'
-Bundle 'kien/ctrlp.vim'
+" Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'xolox/vim-easytags'
 Bundle 'majutsushi/tagbar'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'Shougo/neocomplcache'
+" Bundle 'Shougo/neosnippet'
+" Bundle 'goldfeld/vim-seek'
+" Bundle 'Lokaltog/vim-easymotion'
 
 filetype plugin indent on
 
@@ -65,19 +68,6 @@ set noswapfile
 " CtrlP stuff
 let g:ctrlp_max_height = 30
 set wildignore+=*.pyc
-
-function! OmniPopup(action)
-    if pumvisible()
-        if a:action == 'j'
-            return "\<C-N>"
-        elseif a:action == 'k'
-            return "\<C-P>"
-        endif
-    endif
-    return a:action
-endfunction
-inoremap <silent>j <C-R>=OmniPopup('j')<CR>
-inoremap <silent>k <C-R>=OmniPopup('k')<CR>
 
 " Tab settings
 set tabstop=4
@@ -119,8 +109,12 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" Trying neocomplcache
 let g:neocomplcache_enable_at_startup = 1
+if !exists('g:neocomplcache_omni_functions')
+    let g:neocomplcache_omni_functions = {}
+endif
+let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+let g:jedi#popup_on_dot = 0
 
 """""
 " Up and down
