@@ -10,28 +10,24 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " What to install!?
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'molok/vim-vombato-colorscheme'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Lokaltog/python-syntax'
-Bundle 'tomasr/molokai'
-Bundle 'scrooloose/nerdtree'
-Bundle 'mileszs/ack.vim'
-Bundle "myusuf3/numbers.vim"
-Bundle 'sjl/gundo.vim'
-" Bundle 'sjl/clam.vim'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'goldfeld/vim-seek'
+Bundle 'gmarik/vundle'
 Bundle 'kien/tabman.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'xolox/vim-easytags'
+Bundle 'lepture/vim-jinja'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/python-syntax'
 Bundle 'majutsushi/tagbar'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
-Bundle 'goldfeld/vim-seek'
-Bundle "lepture/vim-jinja"
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tomasr/molokai'
+Bundle 'xolox/vim-easytags'
 
 filetype plugin indent on
 
