@@ -23,7 +23,7 @@ Bundle "myusuf3/numbers.vim"
 Bundle 'sjl/gundo.vim'
 " Bundle 'sjl/clam.vim'
 Bundle 'kien/tabman.vim'
-" Bundle 'kien/ctrlp.vim'
+Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'xolox/vim-easytags'
 Bundle 'majutsushi/tagbar'
@@ -31,6 +31,7 @@ Bundle 'davidhalter/jedi-vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 Bundle 'goldfeld/vim-seek'
+Bundle "lepture/vim-jinja"
 
 filetype plugin indent on
 
@@ -107,9 +108,10 @@ function s:UpdateNERDTree(stay)
 endfunction
 
 " NERDTree binding and toggle
-autocmd vimenter * if !argc() | NERDTree | endif
 nnoremap <F6> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.pyc$', 'Session.vim'] " We don't want to go around opening bytecode files or Vim session files now do we?
+" We don't want to go around opening bytecode files or Vim session files now
+" do we?
+let NERDTreeIgnore=['\.pyc$', 'Session.vim'] 
 
 " Tagbar bindings and options
 let g:tagbar_autofocus = 1
@@ -160,7 +162,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 nmap <leader>p :set paste!<CR>
 
 " mappings
-inoremap jj <Esc>hh
+inoremap jk <Esc>
 " it will allow you to use :w!! to write to a file using sudo if you forgot to
 " sudo vim file (it will prompt for sudo password when writing)
 cmap w!! %!sudo tee > /dev/null %
@@ -171,3 +173,5 @@ set visualbell
 " highlight anything dangling over 80 characters
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+
+autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
