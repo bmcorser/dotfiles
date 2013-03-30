@@ -152,3 +152,7 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
 autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
+
+" for editing actual writing
+map j gj
+map k gk
