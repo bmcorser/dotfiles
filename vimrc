@@ -55,7 +55,7 @@ vnoremap < <<gv
 vnoremap > >>gv
 
 " Stick to 80 column files
-set colorcolumn=80
+set colorcolumn=79
 highlight ColorColumn ctermbg=233
 
 " Do we really need swap files?
