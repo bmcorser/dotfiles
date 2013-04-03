@@ -1,5 +1,6 @@
 [core]
 	editor=vim
+    pager=less -N
 [user]
 	name=bmcorser
 	email=benmarshallcorser@gmail.com
