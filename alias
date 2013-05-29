@@ -5,4 +5,4 @@ alias gbk='git checkout -'
 alias gcd='git checkout develop'
 alias l='ls -lash'
 alias ggpush!='git push origin $(current_branch) --force'
-compdef ggpull=git
+alias ack='ack-grep'
