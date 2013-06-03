@@ -1,3 +1,4 @@
 alias tree='tree -C | less -R'
 alias rmpyc='find . -name "*.pyc" -exec rm {} \;'
 alias cls='clear;echo "Currently logged in on $(tty), as ben in directory $(pwd)."'
+alias t='tmux -2 -u'
