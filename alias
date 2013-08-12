@@ -4,6 +4,7 @@ alias cls='clear;echo "Currently logged in on $(tty), as ben in directory $(pwd)
 alias t='tmux -2 -u'
 alias l='ls -lash'
 alias ack='ack-grep'
+alias v=vim
 
 alias gbk='git checkout -'
 alias gcd='git checkout develop'

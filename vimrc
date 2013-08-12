@@ -14,12 +14,9 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'goldfeld/vim-seek'
 Bundle 'gmarik/vundle'
 Bundle 'kien/tabman.vim'
-Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'lepture/vim-jinja'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Lokaltog/python-syntax'
-Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'scrooloose/nerdtree'
@@ -28,7 +25,9 @@ Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tomasr/molokai'
+Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on
 
@@ -36,7 +35,8 @@ filetype plugin indent on
 set laststatus=2
 set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme = 'skwp'
+let g:Powerline_colorscheme = 'solarized256'
+let g:Powerline_colorscheme = 'default'
 
 " Solarized stuff
 let g:solarized_termcolors=256
