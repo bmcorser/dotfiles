@@ -28,6 +28,8 @@ Bundle 'tomasr/molokai'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 Bundle 'majutsushi/tagbar'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'jgdavey/tslime.vim'
 
 filetype plugin indent on
 
@@ -155,3 +157,7 @@ match OverLength /\%81v.\+/
 autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
 
 nmap <F11> :TMToggle<CR>
+
+" Tslime bits and pieces
+vmap ok <Plug>SendSelectionToTmux
+nmap kko <Plug>SetTmuxVars
