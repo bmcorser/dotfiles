@@ -160,4 +160,4 @@ nmap <F11> :TMToggle<CR>
 
 " Tslime bits and pieces
 vmap ok <Plug>SendSelectionToTmux
-nmap kko <Plug>SetTmuxVars
+nmap <Space>ko <Plug>SetTmuxVars
