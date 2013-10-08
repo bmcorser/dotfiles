@@ -160,3 +160,6 @@ nmap <F11> :TMToggle<CR>
 " Tslime bits and pieces
 vmap ok <Plug>SendSelectionToTmux
 nmap <Space>ko <Plug>SetTmuxVars
+
+" literally no clue
+set nolazyredraw
