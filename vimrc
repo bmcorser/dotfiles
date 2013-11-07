@@ -18,7 +18,6 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'lepture/vim-jinja'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'mileszs/ack.vim'
-Bundle 'myusuf3/numbers.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
@@ -89,7 +88,10 @@ noremap <F3> :cprevious<CR>
 " Ack.vim
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+" Cool numbers
+set number
 nnoremap <F7> :NumbersToggle<CR>    " Relative numbers toggle
+
 nnoremap <F5> :GundoToggle<CR>      " Gundo
 set shortmess+=filmnrxoOtT          " Not hitting ENTER
 
@@ -163,3 +165,6 @@ nmap <Space>ko <Plug>SetTmuxVars
 
 " literally no clue
 set nolazyredraw
+
+" hmmmm, go backspace
+set backspace=indent,eol,start
