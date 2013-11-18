@@ -10,39 +10,50 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " What to install!?
+Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'goldfeld/vim-seek'
-Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'lepture/vim-jinja'
-Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
+Bundle 'chriskempson/tomorrow-theme'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tomasr/molokai'
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-easytags'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'matze/vim-move'
+Bundle 'Valloric/MatchTagAlways'
+" Bundle 'xolox/vim-misc'
+" Bundle 'xolox/vim-easytags'
+Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'majutsushi/tagbar'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'jnurmine/Zenburn'
 
 filetype plugin indent on
 
-" For Powerline
 set laststatus=2
 set encoding=utf-8
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme = 'solarized256'
-let g:Powerline_colorscheme = 'default'
+
+" For airline
+let g:airline_powerline_fonts = 1
+
+" For Powerline
+" let g:Powerline_symbols = 'fancy'
+" let g:Powerline_colorscheme = 'solarized256'
+" let g:Powerline_colorscheme = 'default'
 
 " Solarized stuff
 let g:solarized_termcolors=256
 syntax enable
 set background=dark
-colorscheme molokai
+colorscheme Tomorrow
 
 " Better split movement
 map <c-j> <c-w>j
@@ -89,8 +100,8 @@ noremap <F3> :cprevious<CR>
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " Cool numbers
-set number
-nnoremap <F7> :NumbersToggle<CR>    " Relative numbers toggle
+set nu
+set rnu
 
 nnoremap <F5> :GundoToggle<CR>      " Gundo
 set shortmess+=filmnrxoOtT          " Not hitting ENTER
@@ -115,7 +126,12 @@ let NERDTreeIgnore=['\.pyc$', 'Session.vim']
 
 " Tagbar bindings and options
 let g:tagbar_autofocus = 1
-nmap <F8> :TagbarToggle<CR>         " Tagbar binding
+nmap <F8> :TagbarToggle<CR>
+
+" Easytags options
+let g:easytags_by_filetype = 1
+let g:easytags_on_cursorhold = 1
+let g:easytags_file = '~/.vimtags'
 
 " Rainbow parens
 au VimEnter * RainbowParenthesesToggle
@@ -168,3 +184,5 @@ set nolazyredraw
 
 " hmmmm, go backspace
 set backspace=indent,eol,start
+
+let g:virtualenv_auto_activate = 1
