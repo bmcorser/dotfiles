@@ -15,3 +15,4 @@ alias govenv='cd $VIRTUAL_ENV/lib/python2.7/site-packages/'
 
 # zsh env
 export DISABLE_AUTO_TITLE=true
+source ~/dotfiles/completion/tmuxinator.zsh
