@@ -6,6 +6,7 @@ alias l='ls -lash'
 alias ack='ack-grep'
 alias v=vim
 
+alias gf='git fetch'
 alias gbk='git checkout -'
 alias gcd='git checkout develop'
 alias ggpush!='git push origin $(current_branch) --force'
