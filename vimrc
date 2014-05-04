@@ -1,3 +1,7 @@
+if &shell =~# 'fish$'
+    set shell=bash
+endif
+
 " Standard bits
 let mapleader = ","
 set t_Co=256
@@ -11,14 +15,15 @@ call vundle#rc()
 
 " What to install!?
 Bundle 'gmarik/vundle'
+Bundle 'dag/vim-fish'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'goldfeld/vim-seek'
 Bundle 'kien/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'luochen1990/rainbow'
 Bundle 'lepture/vim-jinja'
 " Bundle 'Lokaltog/vim-powerline'
 Bundle 'bling/vim-airline'
-Bundle 'chriskempson/tomorrow-theme'
+Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -35,12 +40,13 @@ Bundle 'majutsushi/tagbar'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'jnurmine/Zenburn'
+Bundle 'saltstack/salt-vim'
+Bundle 'vim-scripts/vim-vagrant'
 
 filetype plugin indent on
 
 set laststatus=2
 set encoding=utf-8
-
 " For airline
 let g:airline_powerline_fonts = 1
 
@@ -67,7 +73,15 @@ vnoremap > >>gv
 
 " Stick to 80 column files
 set colorcolumn=79
-highlight ColorColumn ctermbg=233
+
+" from http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
+" highlight anything dangling over 80 characters
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
+
+" Whitespace
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
 
 " Do we really need swap files?
 set nobackup
@@ -94,8 +108,8 @@ set <F3>=OR
 " Binding new <F-keys> to Fugitive commands
 noremap <F9> :diffget //2<CR>:diffupdate<CR>
 noremap <F12> :diffget //3<CR>:diffupdate<CR>
-noremap <F2> :cnext<CR>
-noremap <F3> :cprevious<CR>
+noremap <F3> :next<CR>
+noremap <F2> :previous<CR>
 " Ack.vim
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
@@ -134,11 +148,32 @@ let g:easytags_on_cursorhold = 1
 let g:easytags_file = '~/.vimtags'
 
 " Rainbow parens
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\    'guifgs': [
+\        'RoyalBlue3',
+\        'DarkSlateBlue3',
+\        'SprintGreen3',
+\        'DarkOliveGreen3',
+\        'LightGoldenRod2',
+\        'DarkGoldenRod2',
+\        'IndianRed3',
+\        'firebrick3',
+\        'DeepPink3',
+\        'LightPink2',
+\        'VioletRed2',
+\        'magenta3',
+\        'DarkOrchid3',
+\        'MediumPurple3'
+\    ],
+\    'ctermfgs': [
+\        'Red',
+\        'Magenta',
+\        'Blue',
+\        'Green',
+\        'Cyan'
+\   ]
+\}
 
 """""
 " Up and down
@@ -166,11 +201,6 @@ cmap w!! %!sudo tee > /dev/null %
 set noerrorbells
 set visualbell
 
-" from http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns
-" highlight anything dangling over 80 characters
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-
 autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
 
 nmap <F11> :TMToggle<CR>
@@ -186,3 +216,8 @@ set nolazyredraw
 set backspace=indent,eol,start
 
 let g:virtualenv_auto_activate = 1
+
+" fish
+autocmd FileType fish compiler fish
+autocmd FileType fish setlocal textwidth=79
+autocmd FileType fish setlocal foldmethod=expr
