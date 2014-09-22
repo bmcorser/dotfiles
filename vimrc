@@ -10,38 +10,40 @@ set t_Co=256
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " What to install!?
-Bundle 'gmarik/vundle'
-Bundle 'dag/vim-fish'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'goldfeld/vim-seek'
-Bundle 'kien/ctrlp.vim'
-Bundle 'luochen1990/rainbow'
-Bundle 'lepture/vim-jinja'
-" Bundle 'Lokaltog/vim-powerline'
-Bundle 'bling/vim-airline'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tomasr/molokai'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'matze/vim-move'
-Bundle 'Valloric/MatchTagAlways'
-" Bundle 'xolox/vim-misc'
-" Bundle 'xolox/vim-easytags'
-Bundle 'jmcantrell/vim-virtualenv'
-Bundle 'majutsushi/tagbar'
-Bundle 'jgdavey/tslime.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'jnurmine/Zenburn'
-Bundle 'saltstack/salt-vim'
-Bundle 'vim-scripts/vim-vagrant'
+Plugin 'gmarik/vundle'
+Plugin 'dag/vim-fish'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'goldfeld/vim-seek'
+Plugin 'kien/ctrlp.vim'
+Plugin 'luochen1990/rainbow'
+Plugin 'lepture/vim-jinja'
+" Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tomasr/molokai'
+Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_eager = 0
+Plugin 'matze/vim-move'
+Plugin 'Valloric/MatchTagAlways'
+" Plugin 'xolox/vim-misc'
+" Plugin 'xolox/vim-easytags'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'majutsushi/tagbar'
+Plugin 'jgdavey/tslime.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'jnurmine/Zenburn'
+Plugin 'saltstack/salt-vim'
+Plugin 'vim-scripts/vim-vagrant'
+Plugin 'sophacles/vim-bundle-mako'
 
 filetype plugin indent on
 
@@ -49,11 +51,6 @@ set laststatus=2
 set encoding=utf-8
 " For airline
 let g:airline_powerline_fonts = 1
-
-" For Powerline
-" let g:Powerline_symbols = 'fancy'
-" let g:Powerline_colorscheme = 'solarized256'
-" let g:Powerline_colorscheme = 'default'
 
 " Solarized stuff
 let g:solarized_termcolors=256
@@ -221,3 +218,10 @@ let g:virtualenv_auto_activate = 1
 autocmd FileType fish compiler fish
 autocmd FileType fish setlocal textwidth=79
 autocmd FileType fish setlocal foldmethod=expr
+
+" folding
+set foldmethod=indent
+set foldlevel=99
+set foldnestmax=2
+nnoremap <space> za
+vnoremap <space> zf
