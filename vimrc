@@ -1,7 +1,3 @@
-if &shell =~# 'fish$'
-    set shell=bash
-endif
-
 " Standard bits
 let mapleader = ","
 set t_Co=256
@@ -10,39 +6,72 @@ set t_Co=256
 set nocompatible
 filetype off
 
+" Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
+Plugin 'gmarik/Vundle.vim'
 
-" What to install!?
-Plugin 'gmarik/vundle'
-Plugin 'dag/vim-fish'
+" Colours
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'goldfeld/vim-seek'
-Plugin 'kien/ctrlp.vim'
-Plugin 'luochen1990/rainbow'
-Plugin 'lepture/vim-jinja'
-" Plugin 'Lokaltog/vim-powerline'
-Plugin 'bling/vim-airline'
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-fugitive'
+Plugin 'luochen1990/rainbow'
+Plugin 'jnurmine/Zenburn'
 Plugin 'tomasr/molokai'
+
+" Syntax
+Plugin 'scrooloose/syntastic'
+Plugin 'lepture/vim-jinja'
+Plugin 'saltstack/salt-vim'
+Plugin 'vim-scripts/vim-vagrant'
+
+" Git
+Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 let g:gitgutter_eager = 0
+
+" Python
+Plugin 'jmcantrell/vim-virtualenv'
+
+" Javascript
+" Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'Raimondi/delimitMate'
+Plugin 'marijnh/tern_for_vim'
+function s:find_jshintrc(dir)
+    let l:found = globpath(a:dir, '.jshintrc')
+    if filereadable(l:found)
+        return l:found
+    endif
+
+    let l:parent = fnamemodify(a:dir, ':h')
+    if l:parent != a:dir
+        return s:find_jshintrc(l:parent)
+    endif
+
+    return "~/.jshintrc"
+endfunction
+
+function UpdateJsHintConf()
+    let l:dir = expand('%:p:h')
+    let l:jshintrc = s:find_jshintrc(l:dir)
+    let g:syntastic_javascript_jshint_args = '--config' + l:jshintrc + ' --verbose'
+endfunction
+
+au BufEnter * call UpdateJsHintConf()
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+Plugin 'goldfeld/vim-seek'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/gundo.vim'
 Plugin 'matze/vim-move'
 Plugin 'Valloric/MatchTagAlways'
-" Plugin 'xolox/vim-misc'
-" Plugin 'xolox/vim-easytags'
-Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'majutsushi/tagbar'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'jnurmine/Zenburn'
-Plugin 'saltstack/salt-vim'
-Plugin 'vim-scripts/vim-vagrant'
 Plugin 'sophacles/vim-bundle-mako'
 
 filetype plugin indent on
