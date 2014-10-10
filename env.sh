@@ -1,7 +1,7 @@
 # aliases
 alias rmpyc='find . -name "*.pyc" -exec rm {} \; && find . -name "*.orig" -exec rm {} \;'
 alias cls='clear;echo "Currently logged in on $(tty), as ben in directory $(pwd)."'
-alias t='tmux -2 -u'
+alias t='tmux -2u'
 alias l='ls -lash'
 alias ack='ack-grep'
 alias v=vim
@@ -13,7 +13,8 @@ alias ggpush!='git push origin $(current_branch) --force'
 alias grc='git rebase --continue'
 alias gmt='git mergetool'
 alias govenv='cd $VIRTUAL_ENV/lib/python2.7/site-packages/'
+alias ggpull='git pull --ff-only origin $(current_branch)'
 
 # zsh env
 export DISABLE_AUTO_TITLE=true
-source ~/dotfiles/completion/tmuxinator.zsh
+xmodmap ~/dotfiles/Xmodmap
