@@ -38,27 +38,8 @@ Plugin 'jmcantrell/vim-virtualenv'
 " Plugin 'nathanaelkane/vim-indent-guides'
 " Plugin 'Raimondi/delimitMate'
 Plugin 'marijnh/tern_for_vim'
-function s:find_jshintrc(dir)
-    let l:found = globpath(a:dir, '.jshintrc')
-    if filereadable(l:found)
-        return l:found
-    endif
+" let g:syntastic_javascript_jshint_args = '--config /home/ben/work/deskgen/dgsource/.jshintrc --verbose'
 
-    let l:parent = fnamemodify(a:dir, ':h')
-    if l:parent != a:dir
-        return s:find_jshintrc(l:parent)
-    endif
-
-    return "~/.jshintrc"
-endfunction
-
-function UpdateJsHintConf()
-    let l:dir = expand('%:p:h')
-    let l:jshintrc = s:find_jshintrc(l:dir)
-    let g:syntastic_javascript_jshint_args = '--config' + l:jshintrc + ' --verbose'
-endfunction
-
-au BufEnter * call UpdateJsHintConf()
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 Plugin 'goldfeld/vim-seek'
@@ -124,6 +105,9 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
+
+" The other type of tabs
+set tabpagemax=100
 
 " setting F-keys to <F-keys> on my system
 set <F9>=[20~

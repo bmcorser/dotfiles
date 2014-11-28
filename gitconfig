@@ -3,7 +3,7 @@
     pager=less
 [user]
 	name=bmcorser
-	email=benmarshallcorser@gmail.com
+	email=bmcorser@gmail.com
 [color]
 	diff = auto
 	status = auto

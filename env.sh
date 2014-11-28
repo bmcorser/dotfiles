@@ -1,3 +1,23 @@
+# functions
+function confirm {
+    echo 'really?'
+
+    read -rs -k 1 ans
+
+    case "${ans}" in
+    y|Y|$'\n')
+        printf "Yes\n"
+            return 0
+        ;;
+
+    *)  # This is the default
+        printf "No\n"
+            return 1
+
+    esac
+
+}
+
 # aliases
 alias rmpyc='find . -name "*.pyc" -exec rm {} \; && find . -name "*.orig" -exec rm {} \;'
 alias cls='clear;echo "Currently logged in on $(tty), as ben in directory $(pwd)."'
@@ -14,6 +34,7 @@ alias grc='git rebase --continue'
 alias gmt='git mergetool'
 alias govenv='cd $VIRTUAL_ENV/lib/python2.7/site-packages/'
 alias ggpull='git pull --ff-only origin $(current_branch)'
+alias grm='confirm && git reset --hard origin/master'
 
 # zsh env
 export DISABLE_AUTO_TITLE=true
