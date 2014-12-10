@@ -1,6 +1,6 @@
 # functions
 function confirm {
-    echo 'really?'
+echo "$(current_branch) -> origin/$(current_branch) .. really?"
 
     read -rs -k 1 ans
 
@@ -34,7 +34,7 @@ alias grc='git rebase --continue'
 alias gmt='git mergetool'
 alias govenv='cd $VIRTUAL_ENV/lib/python2.7/site-packages/'
 alias ggpull='git pull --ff-only origin $(current_branch)'
-alias grm='confirm && git reset --hard origin/master'
+alias gro='confirm && git reset --hard origin/$(current_branch)'
 
 # zsh env
 export DISABLE_AUTO_TITLE=true
