@@ -23,6 +23,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'lepture/vim-jinja'
 Plugin 'saltstack/salt-vim'
 Plugin 'vim-scripts/vim-vagrant'
+Plugin 'fatih/vim-go'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -39,6 +40,11 @@ Plugin 'jmcantrell/vim-virtualenv'
 " Plugin 'Raimondi/delimitMate'
 Plugin 'marijnh/tern_for_vim'
 " let g:syntastic_javascript_jshint_args = '--config /home/ben/work/deskgen/dgsource/.jshintrc --verbose'
+
+" Makdown edit
+Plugin 'suan/vim-instant-markdown'
+Plugin 'tpope/vim-markdown'
+let g:instant_markdown_slow = 1
 
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
@@ -97,7 +103,7 @@ set noswapfile
 
 " CtrlP stuff
 let g:ctrlp_max_height = 30
-set wildignore+=*.pyc
+set wildignore+=*.pyc,*/bower_components/*,*/node_modules/*,*/lib/*,*/src/*
 
 " Tab settings
 set tabstop=4

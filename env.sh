@@ -39,3 +39,9 @@ alias gro='confirm && git reset --hard origin/$(current_branch)'
 # zsh env
 export DISABLE_AUTO_TITLE=true
 xmodmap ~/dotfiles/Xmodmap
+# unsetopt nomatch # no glob
+# bindkey -v
+bindkey -M viins 'jk' vi-cmd-mode # closer esc
+bindkey -M viins '^R' history-incremental-search-backward
+bindkey -M vicmd '?' history-incremental-search-backward
+export GOPATH=~/.gopkgs
