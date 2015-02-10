@@ -47,6 +47,7 @@ Plugin 'tpope/vim-markdown'
 let g:instant_markdown_slow = 1
 
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
 
 Plugin 'goldfeld/vim-seek'
 Plugin 'kien/ctrlp.vim'
@@ -60,6 +61,18 @@ Plugin 'majutsushi/tagbar'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'sophacles/vim-bundle-mako'
+
+Bundle 'kana/vim-textobj-user.git'
+Bundle 'kana/vim-textobj-entire.git'
+Bundle 'kana/vim-textobj-indent.git'
+Bundle 'kana/vim-textobj-syntax.git'
+Bundle 'kana/vim-textobj-line.git'
+Plugin 'reedes/vim-textobj-quote'
+augroup textobj_quote
+  autocmd!
+  autocmd FileType markdown call textobj#quote#init()
+  autocmd FileType rst call textobj#quote#init()
+augroup END
 
 filetype plugin indent on
 
