@@ -1,1 +1,2 @@
 --pager=less -R
+--type-add=css:ext:scss,sass

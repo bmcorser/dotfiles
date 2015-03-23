@@ -22,6 +22,7 @@ echo "$(current_branch) -> origin/$(current_branch) .. really?"
 alias rmpyc='find . -name "*.pyc" -exec rm {} \; && find . -name "*.orig" -exec rm {} \;'
 alias cls='clear;echo "Currently logged in on $(tty), as ben in directory $(pwd)."'
 alias t='tmux -2u'
+alias tmux='tmux -2u'
 alias l='ls -lash'
 alias ack='ack-grep'
 alias v=vim
@@ -45,3 +46,5 @@ bindkey -M viins 'jk' vi-cmd-mode # closer esc
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '?' history-incremental-search-backward
 export GOPATH=~/.gopkgs
+source ~/.pyenv/versions/2.7.8/bin/tmuxp.zsh
+tmuxp load services.yaml -2 -d
