@@ -14,7 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 " Colours
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'luochen1990/rainbow'
+Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'jnurmine/Zenburn'
 Plugin 'tomasr/molokai'
 
@@ -23,7 +23,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'lepture/vim-jinja'
 Plugin 'saltstack/salt-vim'
 Plugin 'vim-scripts/vim-vagrant'
-Plugin 'fatih/vim-go'
+Plugin 'wting/rust.vim'
+
+" Completion
+" Plugin 'Valloric/YouCompleteMe'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -36,10 +39,13 @@ Plugin 'jmcantrell/vim-virtualenv'
 " Javascript
 " Plugin 'jelera/vim-javascript-syntax'
 " Plugin 'pangloss/vim-javascript'
+Plugin 'othree/yajs.vim'
 " Plugin 'nathanaelkane/vim-indent-guides'
 " Plugin 'Raimondi/delimitMate'
-Plugin 'marijnh/tern_for_vim'
+" Plugin 'marijnh/tern_for_vim'
 " let g:syntastic_javascript_jshint_args = '--config /home/ben/work/deskgen/dgsource/.jshintrc --verbose'
+" let g:syntastic_debug = 3
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Makdown edit
 Plugin 'suan/vim-instant-markdown'
@@ -47,7 +53,9 @@ Plugin 'tpope/vim-markdown'
 let g:instant_markdown_slow = 1
 
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype vue setlocal ts=2 sts=2 sw=2
 
 Plugin 'goldfeld/vim-seek'
 Plugin 'kien/ctrlp.vim'
@@ -59,7 +67,6 @@ Plugin 'matze/vim-move'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'majutsushi/tagbar'
 Plugin 'jgdavey/tslime.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'sophacles/vim-bundle-mako'
 
 Bundle 'kana/vim-textobj-user.git'
@@ -68,6 +75,9 @@ Bundle 'kana/vim-textobj-indent.git'
 Bundle 'kana/vim-textobj-syntax.git'
 Bundle 'kana/vim-textobj-line.git'
 Plugin 'reedes/vim-textobj-quote'
+Bundle 'posva/vim-vue'
+
+Plugin 'tpope/vim-dispatch'
 augroup textobj_quote
   autocmd!
   autocmd FileType markdown call textobj#quote#init()
@@ -176,33 +186,6 @@ let g:easytags_by_filetype = 1
 let g:easytags_on_cursorhold = 1
 let g:easytags_file = '~/.vimtags'
 
-" Rainbow parens
-let g:rainbow_active = 1
-let g:rainbow_conf = {
-\    'guifgs': [
-\        'RoyalBlue3',
-\        'DarkSlateBlue3',
-\        'SprintGreen3',
-\        'DarkOliveGreen3',
-\        'LightGoldenRod2',
-\        'DarkGoldenRod2',
-\        'IndianRed3',
-\        'firebrick3',
-\        'DeepPink3',
-\        'LightPink2',
-\        'VioletRed2',
-\        'magenta3',
-\        'DarkOrchid3',
-\        'MediumPurple3'
-\    ],
-\    'ctermfgs': [
-\        'Red',
-\        'Magenta',
-\        'Blue',
-\        'Green',
-\        'Cyan'
-\   ]
-\}
 
 """""
 " Up and down
@@ -257,3 +240,30 @@ set foldlevel=99
 set foldnestmax=2
 nnoremap <space> za
 vnoremap <space> zf
+
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+set guifont=Inconsolata\ for\ Powerline
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]

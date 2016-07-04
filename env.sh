@@ -23,13 +23,13 @@ alias rmpyc='find . -name "*.pyc" -exec rm {} \; && find . -name "*.orig" -exec 
 alias cls='clear;echo "Currently logged in on $(tty), as ben in directory $(pwd)."'
 alias t='tmux -2u'
 alias l='ls -lash'
-alias ack='ack-grep'
 alias v=vim
 
 alias gf='git fetch'
 alias gbk='git checkout -'
 alias gcd='git checkout develop'
 alias ggpush!='git push origin $(current_branch) --force'
+alias ggpush='git push origin $(current_branch)'
 alias grc='git rebase --continue'
 alias gmt='git mergetool'
 alias govenv='cd $VIRTUAL_ENV/lib/python2.7/site-packages/'
@@ -38,10 +38,16 @@ alias gro='confirm && git reset --hard origin/$(current_branch)'
 
 # zsh env
 export DISABLE_AUTO_TITLE=true
-xmodmap ~/dotfiles/Xmodmap
+# xmodmap ~/dotfiles/Xmodmap
 # unsetopt nomatch # no glob
 # bindkey -v
 bindkey -M viins 'jk' vi-cmd-mode # closer esc
 bindkey -M viins '^R' history-incremental-search-backward
 bindkey -M vicmd '?' history-incremental-search-backward
 export GOPATH=~/.gopkgs
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# pushd /Users/ben/writing/_bmcorser.github.io/blog/2015/12/01 > /dev/null
+# /Users/ben/writing/_bmcorser.github.io/blog/2015/12/01/fx_fdx/target/release/fx_fdx
+# popd > /dev/null
+export HOMEBREW_GITHUB_API_TOKEN=1e6324095cc6d47eae66f866e2088c0b726f8b21
+alias pd=/Applications/Pd-0.47-0.app/Contents/MacOS/Pd
