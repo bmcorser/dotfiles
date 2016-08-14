@@ -21,7 +21,7 @@ gem install tmuxinator
 Redhat
 ------
 ```
-sudo yum install -y tmux cmake gcc-c++
+sudo yum install -y tmux cmake gcc-c++ bzip2-devel sqlite-devel
 ```
 
 Mac
