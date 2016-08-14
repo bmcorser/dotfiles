@@ -26,7 +26,7 @@ Plugin 'vim-scripts/vim-vagrant'
 Plugin 'wting/rust.vim'
 
 " Completion
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 " Git
 Plugin 'tpope/vim-fugitive'

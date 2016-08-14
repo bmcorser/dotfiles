@@ -8,8 +8,8 @@ Let's go!
 
 To begin to use (assuming we have checked out to `$HOME`):
 
-Linux
------
+Ubuntu
+------
 Just use apt :smiley:
 
 ```shell
@@ -18,13 +18,17 @@ sudo apt-get install exuberant-ctags
 gem install tmuxinator
 ```
 
+Redhat
+------
+```
+sudo yum install -y tmux cmake gcc-c++
+```
+
 Mac
 ---
 Get Homebrew and brew away :beer:
 ```shell
 brew install tmux
-brew install ctags-exuberant
-gem install tmuxinator
 ```
 
 Install
@@ -34,13 +38,6 @@ Let's get those submodules down (vundle and a powerline font):
 cd ~/dotfiles/
 git submodule init
 git submodule update
-```
-
-Update the tmuxinator completion file:
-```bash
-git remote add tmuxinator https://github.com/aziz/tmuxinator.git
-git fetch tmuxinator
-git checkout origin/tmuxinator/master -- completion/tmuxinator.zsh
 ```
 
 Symlink files to expected places:
@@ -56,7 +53,7 @@ Delicious vim plugins:
 vim +BundleInstall +qa
 
 cd ~/.vim/bundle/YouCompleteMe
-./install.sh
+python install.py
 ```
 
 Spare aliases are sitting in `env.sh` and need to be sourced at shell startup
