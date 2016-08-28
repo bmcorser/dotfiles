@@ -267,3 +267,4 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
     \ ]
+let g:ycm_server_python_interpreter = '/home/ubuntu/.pyenv/shims/python'
