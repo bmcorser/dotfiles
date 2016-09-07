@@ -9,47 +9,33 @@ filetype off
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
-Plugin 'gmarik/Vundle.vim'
+Bundle 'gmarik/Vundle.vim'
 
 " Colours
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'jnurmine/Zenburn'
-Plugin 'tomasr/molokai'
+Bundle 'kien/rainbow_parentheses.vim'
 
 " Syntax
-Plugin 'scrooloose/syntastic'
-Plugin 'lepture/vim-jinja'
-Plugin 'saltstack/salt-vim'
-Plugin 'vim-scripts/vim-vagrant'
-Plugin 'wting/rust.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'wting/rust.vim'
 
 " Completion
-Plugin 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
 " Git
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-let g:gitgutter_eager = 0
-
-" Python
-Plugin 'jmcantrell/vim-virtualenv'
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+let g:gitgutter_eager = 1
 
 " Javascript
-" Plugin 'jelera/vim-javascript-syntax'
-" Plugin 'pangloss/vim-javascript'
-Plugin 'othree/yajs.vim'
-" Plugin 'nathanaelkane/vim-indent-guides'
-" Plugin 'Raimondi/delimitMate'
-" Plugin 'marijnh/tern_for_vim'
+Bundle 'othree/yajs.vim'
+
 " let g:syntastic_javascript_jshint_args = '--config /home/ben/work/deskgen/dgsource/.jshintrc --verbose'
 " let g:syntastic_debug = 3
 let g:syntastic_javascript_checkers = ['eslint']
 
 " Makdown edit
-Plugin 'suan/vim-instant-markdown'
-Plugin 'tpope/vim-markdown'
+Bundle 'suan/vim-instant-markdown'
+Bundle 'tpope/vim-markdown'
 let g:instant_markdown_slow = 1
 
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
@@ -57,27 +43,30 @@ autocmd Filetype css setlocal ts=2 sts=2 sw=2
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype vue setlocal ts=2 sts=2 sw=2
 
-Plugin 'goldfeld/vim-seek'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/gundo.vim'
-Plugin 'matze/vim-move'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'majutsushi/tagbar'
-Plugin 'jgdavey/tslime.vim'
-Plugin 'sophacles/vim-bundle-mako'
+Bundle 'goldfeld/vim-seek'
+Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-airline'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'sjl/gundo.vim'
+Bundle 'matze/vim-move'
+Bundle 'Valloric/MatchTagAlways'
+Bundle 'majutsushi/tagbar'
+Bundle 'jgdavey/tslime.vim'
+Bundle 'sophacles/vim-bundle-mako'
 
 Bundle 'kana/vim-textobj-user.git'
 Bundle 'kana/vim-textobj-entire.git'
 Bundle 'kana/vim-textobj-indent.git'
 Bundle 'kana/vim-textobj-syntax.git'
 Bundle 'kana/vim-textobj-line.git'
-Plugin 'reedes/vim-textobj-quote'
+Bundle 'reedes/vim-textobj-quote'
 Bundle 'posva/vim-vue'
+Bundle 'pangloss/vim-javascript'
 
-Plugin 'tpope/vim-dispatch'
+Plugin 'editorconfig/editorconfig-vim'
+
+Bundle 'tpope/vim-dispatch'
 augroup textobj_quote
   autocmd!
   autocmd FileType markdown call textobj#quote#init()
@@ -95,7 +84,7 @@ let g:airline_powerline_fonts = 1
 let g:solarized_termcolors=256
 syntax enable
 set background=dark
-colorscheme Tomorrow
+colorscheme darkblue
 
 " Better split movement
 map <c-j> <c-w>j
@@ -241,7 +230,7 @@ set foldnestmax=2
 nnoremap <space> za
 vnoremap <space> zf
 
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+" let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 set guifont=Inconsolata\ for\ Powerline
 
 au VimEnter * RainbowParenthesesToggle
