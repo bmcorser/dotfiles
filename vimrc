@@ -241,7 +241,6 @@ set foldnestmax=2
 nnoremap <space> za
 vnoremap <space> zf
 
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 set guifont=Inconsolata\ for\ Powerline
 
 au VimEnter * RainbowParenthesesToggle
@@ -267,4 +266,6 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
     \ ]
-let g:ycm_server_python_interpreter = '/home/ubuntu/.pyenv/shims/python'
+
+" let g:ycm_server_python_interpreter = '/home/ubuntu/.pyenv/shims/python'
+" let g:ycm_path_to_python_interpreter = '/usr/bin/python'
