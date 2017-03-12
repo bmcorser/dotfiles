@@ -1,14 +1,20 @@
 #!/bin/bash
+echo 'Grabbing sudo once, don’t pretend you don’t love it'
+sudo echo 'Got sudo'
+
 
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vim ~/.vim
 
-sudo apt install -y tmux git zsh cmake
+sudo apt install -y tmux git zsh cmake g++ python-dev
 
 git submodule init
 git submodule update
+
+sudo cp ~/dotfiles/fonts/*.otf /usr/share/fonts/opentype/
+sudo cp ~/dotfiles/fonts/*.ttf /usr/share/fonts/truetype/
 
 vim +BundleInstall +qa
 pushd ~/.vim/bundle/YouCompleteMe

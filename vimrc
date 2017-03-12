@@ -1,3 +1,4 @@
+set background=dark
 let mapleader = ","
 
 " Vundle plugin manager
@@ -10,9 +11,9 @@ Bundle 'gmarik/vundle'
 Bundle 'goldfeld/vim-seek'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
-" Bundle 'vim-airline/vim-airline'
-" Bundle 'vim-airline/vim-airline-themes'
-Bundle 'itchyny/lightline.vim'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+" Bundle 'itchyny/lightline.vim'
 Bundle 'chriskempson/base16-vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
@@ -32,6 +33,11 @@ let g:airline_powerline_fonts = 1
 
 syntax enable
 colorscheme base16-3024
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+set background=dark
 
 " Better split movement
 map <c-j> <c-w>j
@@ -63,7 +69,6 @@ set shiftround
 set expandtab
 
 " Cool numbers
-set nu
 set rnu
 
 nnoremap <F5> :GundoToggle<CR>      " Gundo
@@ -132,4 +137,3 @@ set nolazyredraw
 
 " hmmmm, go backspace
 set backspace=indent,eol,start
-
