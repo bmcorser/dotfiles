@@ -70,6 +70,7 @@ set expandtab
 
 " Cool numbers
 set rnu
+set nu
 
 nnoremap <F5> :GundoToggle<CR>      " Gundo
 set shortmess+=filmnrxoOtT          " Not hitting ENTER
