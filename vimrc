@@ -10,7 +10,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'goldfeld/vim-seek'
 Bundle 'kien/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'luochen1990/rainbow'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 " Bundle 'itchyny/lightline.vim'
@@ -32,7 +32,7 @@ set encoding=utf-8
 let g:airline_powerline_fonts = 1
 
 syntax enable
-colorscheme base16-3024
+colorscheme base16-google-light
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -103,11 +103,7 @@ let g:easytags_on_cursorhold = 1
 let g:easytags_file = '~/.vimtags'
 
 " Rainbow parens
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
+let g:rainbow_active = 1
 
 """""
 " Up and down
@@ -138,3 +134,9 @@ set nolazyredraw
 
 " hmmmm, go backspace
 set backspace=indent,eol,start
+
+" indents
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+
+let g:syntastic_python_checkers = ['flake8']
