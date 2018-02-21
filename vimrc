@@ -23,6 +23,16 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/MatchTagAlways'
 Bundle 'Valloric/YouCompleteMe'
 
+" ctags
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-easytags'
+set tags=./tags;
+let g:easytags_dynamic_files = 2
+let g:easytags_async = 1
+let g:easytags_auto_highlight = 0
+let g:easytags_include_members = 1
+let g:easytags_events = ['BufWritePost']
+
 filetype plugin indent on
 
 set laststatus=2
@@ -139,4 +149,4 @@ set backspace=indent,eol,start
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['flake8', 'pyflakes']
