@@ -32,3 +32,5 @@
 	tool = fugitive
 [http]
 	cookiefile = /home/ben/.gitcookies
+[gpg]
+	program = gpg

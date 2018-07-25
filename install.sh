@@ -8,13 +8,14 @@ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vim ~/.vim
 
-sudo apt install -y tmux git zsh cmake g++ python-dev
+brew install tmux git zsh cmake ctags pinentry-mac
 
-git submodule init
-git submodule update
+git submodule update --init --remote
 
-sudo cp ~/dotfiles/fonts/*.otf /usr/share/fonts/opentype/
-sudo cp ~/dotfiles/fonts/*.ttf /usr/share/fonts/truetype/
+echo Install fonts manually
+pushd ~/dotfiles/fonts
+open .
+popd
 
 vim +BundleInstall +qa
 pushd ~/.vim/bundle/YouCompleteMe
