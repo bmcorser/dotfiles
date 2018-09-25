@@ -10,7 +10,6 @@ alias gcd='git checkout develop'
 alias ggpush!='git push origin $(current_branch) --force'
 alias grc='git rebase --continue'
 alias gmt='git mergetool'
-setxkbmap -option caps:ctrl_modifier
 alias ag='ag --pager="less -R"'
 alias glg='git log --stat --show-signature'
 

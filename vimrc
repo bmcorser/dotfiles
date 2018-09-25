@@ -13,8 +13,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'luochen1990/rainbow'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
-" Bundle 'itchyny/lightline.vim'
-Bundle 'chriskempson/base16-vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
@@ -26,6 +24,7 @@ Bundle 'Valloric/YouCompleteMe'
 " ctags
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
+
 set tags=./tags;
 let g:easytags_dynamic_files = 2
 let g:easytags_async = 1
@@ -41,13 +40,6 @@ set encoding=utf-8
 " For airline
 let g:airline_powerline_fonts = 1
 
-syntax enable
-colorscheme base16-google-light
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-set background=dark
 
 " Better split movement
 map <c-j> <c-w>j
@@ -150,3 +142,6 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:syntastic_python_checkers = ['flake8', 'pyflakes']
+
+syntax off
+set list

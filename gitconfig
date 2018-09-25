@@ -2,9 +2,9 @@
 	editor=vim
     pager=less
 [user]
-	name=bmcorser
-	email=bmcorser@gmail.com
-	signingkey = BA2C75FE48D6D75065817ED27F0E595C2857639F
+	name=Ben Corser
+	email=ben@steady.supply
+	signingkey = 0BBB0780
 [color]
 	diff = auto
 	status = auto
@@ -32,3 +32,5 @@
 	tool = fugitive
 [http]
 	cookiefile = /home/ben/.gitcookies
+[push]
+	default = matching
