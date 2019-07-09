@@ -20,6 +20,9 @@ Bundle 'mhinz/vim-signify'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/MatchTagAlways'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'rust-lang/rust.vim'
+Bundle 'hashivim/vim-terraform'
+Bundle 'ElmCast/elm-vim'
 
 " ctags
 Bundle 'xolox/vim-misc'
@@ -140,8 +143,12 @@ set backspace=indent,eol,start
 " indents
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType c setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType rust setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType elm setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:syntastic_python_checkers = ['flake8', 'pyflakes']
 
 syntax off
-set list
