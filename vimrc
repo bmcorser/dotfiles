@@ -10,7 +10,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'goldfeld/vim-seek'
 Bundle 'kien/ctrlp.vim'
-Bundle 'luochen1990/rainbow'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'scrooloose/nerdtree'
@@ -20,9 +19,18 @@ Bundle 'mhinz/vim-signify'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/MatchTagAlways'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'rust-lang/rust.vim'
-Bundle 'hashivim/vim-terraform'
-Bundle 'ElmCast/elm-vim'
+
+" golang setup
+" Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
+" Plugin 'fatih/vim-go'
+" let g:go_fmt_autosave = 0
+" Bundle 'steadysupply/vim-gocode'
+" Plugin 'dense-analysis/ale'
+" let g:ale_linters = {'go': ['gopls']}
+autocmd FileType go setlocal ts=2 sts=2 sw=2 expandtab
+
+Bundle 'selectel/pyte'
+
 
 " ctags
 Bundle 'xolox/vim-misc'
@@ -106,25 +114,6 @@ nmap <F8> :TagbarToggle<CR>
 let g:easytags_by_filetype = 1
 let g:easytags_on_cursorhold = 1
 let g:easytags_file = '~/.vimtags'
-
-" Rainbow parens
-let g:rainbow_active = 1
-
-"""""
-" Up and down
-"
-"The following mappings in your vimrc provide a quick way to move lines 
-"of text up or down. The mappings work in normal, insert and visual modes,
-"allowing you to move the current line, or a selected block of lines.
-
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
-
-""allow pasting in insert mode
 
 nmap <leader>p :set paste!<CR>
 
