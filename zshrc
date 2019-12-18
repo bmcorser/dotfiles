@@ -2,6 +2,7 @@
 HISTFILE=~/.zsh_history
 HISTSIZE=50000
 SAVEHIST=100000
+
 setopt appendhistory
 unsetopt beep nomatch
 # End of lines configured by zsh-newuser-install
