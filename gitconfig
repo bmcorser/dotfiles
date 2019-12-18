@@ -1,7 +1,6 @@
 [core]
 	editor=vim
     pager=less
-	sshCommand = ssh -i ~/.ssh/steadysupply
 [user]
 	name=Ben Corser
 	email=ben@steady.supply
